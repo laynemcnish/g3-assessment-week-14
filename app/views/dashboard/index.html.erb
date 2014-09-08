@@ -10,7 +10,7 @@
   <tbody>
   <% @patients.each do |patient| %>
     <tr>
-      <td><%= full_name(patient) %></td>
+      <td><a href="/patient/<%= patient.id %>"><%= full_name(patient) %></a></td>
     </tr>
   <% end %>
   </tbody>

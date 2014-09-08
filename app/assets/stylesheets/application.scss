@@ -76,8 +76,8 @@ main {
 
 .table {
   $light-gray: #efefef;
-
   width: 100%;
+
   th {
     font-weight: bold;
     text-align: left;
@@ -87,6 +87,7 @@ main {
     padding: .5em;
     border: 1px solid $light-gray;
   }
+
 
   tbody {
     tr:nth-child(odd) td {
