@@ -1,0 +1,23 @@
+<h1><%= @medication.name %></h1>
+
+<table class="table">
+    <tr>
+      <th>Patient</th>
+      <th>Dosage / Schedule</th>
+      <th>Dates</th>
+    </tr>
+  <% @prescriptions.each do |prescription| %>
+    <% @patient = Patient.find(prescription.patient_id) %>
+    <tr>
+      <td>
+        <a href="/patients/<%= @patient.id %>"><%= @patient.first_name %> <%= @patient.last_name %></a>
+      </td>
+      <td>
+        <%= prescription.dosage %> <%= prescription.schedule %>
+      </td>
+      <td>
+        <%= prescription.starting_date %><%= prescription.ending_date %>
+      </td>
+    </tr>
+  <% end %>
+</table>

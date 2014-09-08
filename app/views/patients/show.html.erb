@@ -1,0 +1,25 @@
+<h1><%= @patient.first_name %> <%= @patient.last_name %></h1>
+<div id="flash">
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+</div>
+<p>Prescriptions</p>
+<a href="/prescriptions/new.<%= @patient.id %>" style="float: right">Add Prescription</a>
+
+<table class="table">
+  <tr>
+    <th>Medication</th>
+    <th>Dosage / Schedule</th>
+    <th>Dates</th>
+  </tr>
+  <% if @prescriptions != nil %>
+    <% @prescriptions.each do |prescription| %>
+      <tr>
+        <td><%= @medications.find(prescription.medication_id).name %></td>
+        <td><%= prescription.dosage %> <%= prescription.schedule %></td>
+        <td><%= prescription.starting_date %> - <%= prescription.ending_date %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

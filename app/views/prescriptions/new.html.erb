@@ -1,0 +1,40 @@
+<h1>Add a prescription</h1>
+<%= form_for @prescription do |f| %>
+  <% if @prescription.errors.any? %>
+      <% @prescription.errors.full_messages.each do |message| %>
+      <div class="errors" style="display:inline;">
+      <%= message %>
+        </div>
+      <br>
+      <% end %>
+
+  <% end %>
+
+  <div>
+    <%= f.label :medication_id %>
+    <%= f.select(:medication_id, @medications.map { |medication| [medication.name, medication.id] }) %>
+  </div>
+  </br>
+  <div>
+    <%= f.label :dosage %>
+    <%= f.text_field :dosage %>
+  </div>
+  </br>
+  <div>
+    <%= f.label :schedule %>
+    <%= f.text_field :schedule %>
+  </div>
+  </br>
+  <div>
+    <%= f.label :starting_date %>
+    <%= f.date_select :starting_date %>
+  </div>
+  </br>
+  <div>
+    <%= f.label :ending_date %>
+    <%= f.date_select :ending_date %>
+  </div>
+  </br>
+  <%= f.hidden_field :patient_id, :value => params[:format] %>
+  <%= f.submit %>
+<% end %>

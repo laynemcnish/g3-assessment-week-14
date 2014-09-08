@@ -3,7 +3,7 @@ require 'capybara/rails'
 
 feature "Patients" do
 
-  scenario "User sees all patient" do
+  scenario "User sees all patients" do
     user = create_user
     patient = create_patient
     login(user)
@@ -11,7 +11,7 @@ feature "Patients" do
     expect(page).to have_content(patient.first_name, patient.last_name)
   end
 
-  scenario "User can click on patient name on index page and see their patient info" do
+  scenario "User can click on patients name on index page and see their patients info" do
     user = create_user
     patient = create_patient
     login(user)
